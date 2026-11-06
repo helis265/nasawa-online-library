@@ -1,0 +1,14 @@
+{
+  "name": "nasawa-e-library",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node -e \"const fs=require('node:fs');const vm=require('node:vm');for(const file of ['SCRIPT.JS','api/config.js','api/[...path].js'])new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});\""
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}

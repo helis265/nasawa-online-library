@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#721c27">
+  <meta name="description" content="Explore learning resources from Nasawa Technical College.">
+
+  <title>Nasawa Library | Learn without limits</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./STYLE.CSS">
+</head>
+
+
+<body>
+
+  <div id="auth-screen"   class="auth-screen">
+    
+    <div class="auth-art">
+      <a class="brand brand-light" href="#"><span class="brand-mark">N</span><span>NASAWA<span class="brand-sub">TECHNICAL COLLEGE</span></span></a>
+      <div class="auth-art-copy">
+        <span class="eyebrow">YOUR CAMPUS. YOUR LIBRARY.</span>
+
+        <h1>Knowledge is<br>your next <em>great</em><br>tool.</h1>
+
+
+        <p>A world of practical learning, right at your fingertips.</p>
+      </div>
+      <div class="auth-art-bottom"><span>13 departments</span><span>·</span><span>One place to grow</span></div>
+    </div>
+
+
+
+
+    <div class="auth-panel">
+      <div class="auth-mobile-brand"><span class="brand-mark">N</span><span>NASAWA LIBRARY</span></div>
+
+      <div class="auth-card">
+        <div class="auth-heading">
+          <span class="eyebrow" id="auth-kicker">WELCOME BACK</span>
+          <h2 id="auth-title">Good to see you.</h2>
+          <p id="auth-subtitle">Sign in to continue your learning journey.</p>
+        </div>
+
+
+
+
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab is-active" type="button" data-auth-mode="login" role="tab" aria-selected="true">Log in</button>
+          <button class="auth-tab" type="button" data-auth-mode="register" role="tab" aria-selected="false">Create account</button>
+        </div>
+
+        <form id="auth-form" class="auth-form">
+          <label id="name-field" class="field is-hidden">Full name<input name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name"></label>
+          <label class="field">Email address<input name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required></label>
+          <label class="field">Password<input name="password" type="password" autocomplete="current-password" minlength="10" maxlength="128" placeholder="At least 10 characters" required></label>
+          <button class="button button-primary button-wide" type="submit"><span id="auth-submit-label">Log in</span><span aria-hidden="true">↗</span></button>
+          <p class="form-message" id="auth-message" aria-live="polite"></p>
+        </form>
+        <p class="auth-note" id="auth-note">A welcoming space for every Nasawa learner.</p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div id="app" class="app-shell is-hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <a class="brand" href="#" data-view="home"><span class="brand-mark">N</span><span>NASAWA<span class="brand-sub">E-LIBRARY</span></span></a>
+        <button class="icon-button sidebar-close" id="sidebar-close" aria-label="Close navigation">×</button>
+      </div>
+
+      <div class="sidebar-label">LIBRARY</div>
+
+      <nav class="nav-list" aria-label="Library navigation">
+        <button class="nav-link is-active" data-view="home"><span class="nav-icon">⌂</span>Discover</button>
+        <button class="nav-link" data-view="videos"><span class="nav-icon">▶</span>Video lessons</button>
+        <button class="nav-link" data-view="about"><span class="nav-icon">✦</span>About</button>
+        <button class="nav-link" data-view="saved"><span class="nav-icon">♡</span>Saved books</button>
+        <button class="nav-link" data-view="activity"><span class="nav-icon">◷</span>My activity</button>
+      </nav>
+
+
+      <div class="sidebar-label department-label">DEPARTMENTS</div>
+      <div id="department-nav" class="department-nav"></div>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-help"><span class="help-icon">✳</span><div><strong>Keep learning</strong><p>Your next skill starts here.</p></div></div>
+      <div class="sidebar-user">
+        <div class="avatar" id="sidebar-avatar">N</div>
+        <div class="sidebar-user-info"><strong id="sidebar-name">Learner</strong><span id="sidebar-role">Student account</span></div>
+        <button class="icon-button logout-button" id="logout-button" aria-label="Log out" title="Log out">↗</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menu-button" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb"><span>Nasawa Library</span><span class="breadcrumb-divider">/</span><strong id="breadcrumb-current">Discover</strong></div>
+        <div class="topbar-actions">
+          <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search books, topics..." aria-label="Search books"><kbd>/</kbd></label>
+          <button class="icon-button notification-button" id="refresh-button" aria-label="Refresh library" title="Refresh library">↻</button>
+          <div class="topbar-avatar" id="topbar-avatar">N</div>
+        </div>
+      </header>
+
+      
+      <section id="page-content" class="page-content" aria-live="polite"></section>
+      <footer class="site-footer"><span>NASAWA TECHNICAL COLLEGE</span><span>Learn a skill. Build a future.</span></footer>
+    </main>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <dialog id="book-dialog" class="book-dialog"></dialog>
+  <dialog id="upload-dialog" class="upload-dialog"></dialog>
+  <dialog id="users-dialog" class="users-dialog"></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./SCRIPT.JS" defer></script>
+</body>
+</html>
